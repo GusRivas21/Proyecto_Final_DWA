@@ -1,0 +1,25 @@
+{
+  "name": "proyecto_final_dwa",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/GusRivas21/Proyecto_Final_DWA.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/GusRivas21/Proyecto_Final_DWA/issues"
+  },
+  "homepage": "https://github.com/GusRivas21/Proyecto_Final_DWA#readme",
+  "dependencies": {
+    "@tailwindcss/vite": "^4.1.17",
+    "tailwindcss": "^4.1.17"
+  }
+}
