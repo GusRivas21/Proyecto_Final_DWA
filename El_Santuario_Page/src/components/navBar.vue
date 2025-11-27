@@ -1,20 +1,24 @@
 <template>
-    <nav class="w-full" style="background-color: #141420;">
-        <div class="w-16 md:w-32 lg:w-48 mx-auto flex flex-row justify-center gap-x-4 py-3 ">
+    <nav class="w-full " style="background-color: #141420;">
+        <div class="w-[80%] mx-auto flex flex-row justify-center sm:justify-between gap-x-4 py-3 ">
 
-            <div class="w-1/3 justify-start content-center">
+            <div class="w-1/3 justify-between md:justify-start content-center">
                 <h3 class="inter-text-semi-bold text-white">EL SANTUARIO</h3>
             </div>
 
-            <div class="flex flex-row w-2/3">
-                <div class="flex flex-row gap-x-5 mx-32 justify-center content-center ">
+            <button @click="isOpen = !isOpen"  class="md:hidden text-3xl text-white justify-end">
+                ☰
+            </button>
+
+            <div class="hidden md:flex w-2/3 justify-between">
+                <div class="flex flex-row gap-x-5 mx-5 justify-center content-center ">
                     <a class="inter-text-light text-white content-center" href="#">Inicio</a>
                     <a class="inter-text-light text-white content-center" href="#">Figuras</a>
                     <a class="inter-text-light text-white content-center" href="#">Ofertas</a>
                 </div>
                 <div class="flex flex-row gap-x-7">
                     <div class="flex flex-row bg-white w-3xs h-auto p-5 rounded-xl text-center justify-end">
-                        <i class="fa-solid fa-magnifying-glass fa-2xl leading-none p-0 m-0 content-center" style="color: #539ff0;"></i>
+                        <i class="fa-solid fa-magnifying-glass fa-2xl leading-none p-0 m-0 content-center justify-end" style="color: #539ff0;"></i>
                     </div>
                     <div class="flex flex-row py-3 gap-x-5">
                         <div><i class="fa-solid fa-user fa-2xl leading-none" style="color: #539ff0;"></i></div>
@@ -23,6 +27,22 @@
                 </div>
             </div>
         </div>
+            <div  v-if="isOpen" class="hidden w-[80%] flex-col items-center justify-between md:hidden lg:hidden">
+                <div class="flex-col">
+                    <a class="inter-text-light text-white content-center" href="#">Inicio</a>
+                    <a class="inter-text-light text-white content-center" href="#">Figuras</a>
+                    <a class="inter-text-light text-white content-center" href="#">Ofertas</a>
+                </div>
+                <div class="flex-col">
+                    <div class="flex flex-row bg-white w-3xs h-auto p-5 rounded-xl text-center justify-end">
+                        <i class="fa-solid fa-magnifying-glass fa-2xl leading-none p-0 m-0 content-center justify-end" style="color: #539ff0;"></i>
+                    </div>
+                    <div class="flex flex-row py-3 gap-x-5">
+                        <div><i class="fa-solid fa-user fa-2xl leading-none" style="color: #539ff0;"></i></div>
+                        <div><i class="fa-solid fa-cart-shopping fa-2xl leading-none" style="color: #539ff0;"></i></div>
+                    </div>                    
+                </div>            
+            </div>
     </nav>
 </template>
 
@@ -44,3 +64,9 @@
     line-height: 100%;
     }
 </style>
+
+<script setup>
+import { ref } from "vue";
+
+const isOpen = ref(false);
+</script>
