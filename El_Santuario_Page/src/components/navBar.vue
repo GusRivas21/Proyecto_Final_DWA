@@ -27,17 +27,19 @@
                 </div>
             </div>
         </div>
-            <div  v-if="isOpen" class="hidden w-[80%] flex-col items-center justify-between md:hidden lg:hidden">
-                <div class="flex-col">
+            <div v-if="isOpen" class="flex flex-col items-center gap-6 pb-4 md:hidden">
+                <div class="h-px w-100 bg-gray-400"></div>
+                <div class="flex flex-col gap-5 justify-center text-center">
                     <a class="inter-text-light text-white content-center" href="#">Inicio</a>
                     <a class="inter-text-light text-white content-center" href="#">Figuras</a>
                     <a class="inter-text-light text-white content-center" href="#">Ofertas</a>
                 </div>
+                <div class="h-px w-100 bg-gray-400"></div>
                 <div class="flex-col">
-                    <div class="flex flex-row bg-white w-3xs h-auto p-5 rounded-xl text-center justify-end">
+                    <div class="flex flex-row bg-white w-3xs h-auto p-5 mb-5 rounded-xl text-center justify-end">
                         <i class="fa-solid fa-magnifying-glass fa-2xl leading-none p-0 m-0 content-center justify-end" style="color: #539ff0;"></i>
                     </div>
-                    <div class="flex flex-row py-3 gap-x-5">
+                    <div class="flex flex-row py-3 gap-x-5 justify-center">
                         <div><i class="fa-solid fa-user fa-2xl leading-none" style="color: #539ff0;"></i></div>
                         <div><i class="fa-solid fa-cart-shopping fa-2xl leading-none" style="color: #539ff0;"></i></div>
                     </div>                    
