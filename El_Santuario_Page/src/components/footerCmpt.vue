@@ -1,41 +1,42 @@
 <template>
-    <footer class="w-full text-white"style="background-color: #141420;">
-        <div>
-            <div>
-                <h4>Empresa</h4>
-                <div>
-                    <p>Politica de privacidad</p>
-                    <p>Terminos y condiciones</p>
-                    <p>Contactos</p>
+    <footer class="w-full flex flex-col content-center text-center text-white  "style="background-color: #141420;">
+        <div class="grid grid-cols-1 md:grid-cols-3 xl:grid-cols-4 gap-x-10 text-left mt-6 py-6">
+            <div class="w-fit content-end">
+                <h4 class="inter-text-semi-bold mb-6  ">Empresa</h4>
+                <div class="inter-text-regular  ">
+                    <p class="mb-4">Politica de privacidad</p>
+                    <p class="mb-4">Terminos y condiciones</p>
+                    <p class="mb-4">Contactos</p>
                 </div>
             </div>
-            <div>
-                <h4>Productos</h4>
-                <div>
-                    <p>Figuras de Anime</p>
-                    <p>Figuras de Comic</p>
-                    <p>Figuras de Peliculas</p>
-                    <p>Planes de Suscripcion</p>
+            <div class=" w-fit">
+                <h4 class="inter-text-semi-bold mb-6  ">Productos</h4>
+                <div class="inter-text-regular  ">
+                    <p class="mb-4">Figuras de Anime</p>
+                    <p class="mb-4">Figuras de Comic</p>
+                    <p class="mb-4">Figuras de Peliculas</p>
+                    <p class="mb-4">Planes de Suscripcion</p>
                 </div>
             </div>
-            <div>
-                <h4>Suscribite</h4>
-                <div>
-                    <p>¡Regístrate para recibir nuestros correos electrónicos y ssubtitleé el primero en conocer nuestras ofertas especiales!</p>
-                    <p>Registrarme</p>
+            <div class=" w-3xs">
+                <h4 class="inter-text-semi-bold mb-6  ">Suscribite</h4>
+                <div class="inter-text-regular">
+                    <p class="mb-4">¡Regístrate para recibir nuestros correos electrónicos y subtitleé el primero en conocer nuestras ofertas especiales!</p>
+                    <p class="mb-4">Registrarme</p>
                 </div>
             </div>
-            <div>
-                <h4>EL SANTUARIO</h4>
-                <p>Redes Sociales</p>
-                <div>
+            <!-- <div class=" w-3xs ml-5"> -->
+            <div class=" w-fit">
+                <h4 class="inter-text-semi-bold mb-8  " >EL SANTUARIO</h4>
+                <h4 class="inter-text-semi-bold mb-8">Redes Sociales</h4>
+                <div  >
                     <i class="fa-brands fa-square-facebook fa-2xl" style="color: #ffffff;"></i>
                     <i class="fa-brands fa-instagram fa-2xl" style="color: #ffffff;"></i>
                     <i class="fa-brands fa-tiktok fa-2xl" style="color: #ffffff;"></i>
                 </div>
             </div>
         </div>
-        <p>@ Todos los derechos reservados por El Santuario</p>
+        <p class="mb-6">@ Todos los derechos reservados por El Santuario</p>
     </footer>
 </template>
 
