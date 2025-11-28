@@ -1,7 +1,7 @@
 <template>
     <footer class="w-full flex flex-col content-center text-center text-white  "style="background-color: #141420;">
-        <div class="grid grid-cols-1 md:grid-cols-3 xl:grid-cols-4 gap-x-10 text-left mt-6 py-6">
-            <div class="w-fit content-end">
+        <div class="grid text-center md:text-left sm:grid-cols-[auto] md:grid-cols-[auto_auto] lg:grid-cols-[auto_auto_auto] xl:grid-cols-[auto_auto_auto_auto] justify-center  content-start gap-x-10 mt-6 py-6">
+            <div class="mb-5">
                 <h4 class="inter-text-semi-bold mb-6  ">Empresa</h4>
                 <div class="inter-text-regular  ">
                     <p class="mb-4">Politica de privacidad</p>
@@ -9,7 +9,7 @@
                     <p class="mb-4">Contactos</p>
                 </div>
             </div>
-            <div class=" w-fit">
+            <div class="mb-5">
                 <h4 class="inter-text-semi-bold mb-6  ">Productos</h4>
                 <div class="inter-text-regular  ">
                     <p class="mb-4">Figuras de Anime</p>
@@ -18,7 +18,7 @@
                     <p class="mb-4">Planes de Suscripcion</p>
                 </div>
             </div>
-            <div class=" w-3xs">
+            <div class=" w-3xs mb-5" >
                 <h4 class="inter-text-semi-bold mb-6  ">Suscribite</h4>
                 <div class="inter-text-regular">
                     <p class="mb-4">¡Regístrate para recibir nuestros correos electrónicos y subtitleé el primero en conocer nuestras ofertas especiales!</p>
@@ -26,7 +26,7 @@
                 </div>
             </div>
             <!-- <div class=" w-3xs ml-5"> -->
-            <div class=" w-fit">
+            <div class="mb-5 lg:col-start-2 xl:col-start-auto">
                 <h4 class="inter-text-semi-bold mb-8  " >EL SANTUARIO</h4>
                 <h4 class="inter-text-semi-bold mb-8">Redes Sociales</h4>
                 <div  >
