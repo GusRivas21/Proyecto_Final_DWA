@@ -3,16 +3,19 @@
         <div class="w-[80%] mx-auto flex flex-row justify-between gap-x-4 py-3 ">
             <h3 class="inter-subtitle-semi-bold  w-1/3 justify-between md:justify-start content-center text-center">EL SANTUARIO</h3>
             <div class="flex w-2/3 justify-end md:justify-around">
-                <button @click="isOpen = !isOpen"  class="inline xl:hidden text-3xl justify-end cursor-pointer">
+                <button @click="isOpen = !isOpen"  class="inline xl:hidden text-3xl justify-end cursor-pointer"     
+                    aria-label="Abrir menú de navegación"
+                    :aria-expanded="isOpen.toString()"
+                    aria-controls="mobile-menu">
                     ☰
                 </button>
-                <ul class="hidden xl:flex flex-row gap-x-5 mx-5 justify-center content-center">
+                <ul class="hidden xl:flex flex-row gap-x-5 mx-5 justify-center content-center" role="navigation">
                     <li class="flex content-cemter"><a class="inter-subtitle-regular content-center" href="#">Inicio</a></li>
                     <li class="flex content-cemter"><a class="inter-subtitle-regular content-center" href="#">Figuras</a></li>
                     <li class="flex content-cemter"><a class="inter-subtitle-regular content-center" href="#">Ofertas</a></li>
                 </ul>
                 <div class="hidden md:flex lg:justify-end flex-row gap-x-7">
-                    <form tabindex="0"
+                    <form aria-hidden="true" tabindex="0"
                     class="flex content-around flex-row bg-white w-3xs p-3 rounded-xl text-center justify-between text-black focus-visible:ring-2 focus-visible:ring-blue-500  " >
                         <input type="text" class="w-[80%] caret-black outline-none">
                         <button class="w-fit">
