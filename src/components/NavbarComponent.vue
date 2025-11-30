@@ -11,7 +11,7 @@
                 </button>
                 <ul class="hidden xl:flex flex-row gap-x-5 mx-5 justify-center content-center" role="navigation">
                     <li class="flex content-cemter"><a class="inter-subtitle-regular content-center" href="#">Inicio</a></li>
-                    <li class="flex content-cemter"><a class="inter-subtitle-regular content-center" href="#">Figuras</a></li>
+                    <li class="flex content-cemter"><RouterLink class="inter-subtitle-regular content-center" :to="{ name: 'figuras'}">Figuras</RouterLink></li>
                     <li class="flex content-cemter"><a class="inter-subtitle-regular content-center" href="#">Ofertas</a></li>
                 </ul>
                 <div class="hidden md:flex lg:justify-end flex-row gap-x-7">
@@ -76,6 +76,7 @@
 
 <script setup>
 import { ref } from "vue";
+import { RouterLink } from "vue-router";
 
 const isOpen = ref(false);
 </script>
