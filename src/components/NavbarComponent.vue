@@ -3,16 +3,16 @@
         <div class="w-[80%] mx-auto flex flex-row justify-between gap-x-4 py-3 ">
             <h3 class="inter-subtitle-semi-bold  w-1/3 justify-between md:justify-start content-center text-center">EL SANTUARIO</h3>
             <div class="flex w-2/3 justify-end md:justify-around">
-                <button @click="isOpen = !isOpen"  class="inline xl:hidden text-3xl justify-end cursor-pointer"     
+                <button @click="isOpen = !isOpen"  class="inline xl:hidden text-3xl justify-end cursor-pointer"
                     aria-label="Abrir menú de navegación"
                     :aria-expanded="isOpen.toString()"
                     aria-controls="mobile-menu">
                     ☰
                 </button>
                 <ul class="hidden xl:flex flex-row gap-x-5 mx-5 justify-center content-center" role="navigation">
-                    <li class="flex content-cemter"><a class="inter-subtitle-regular content-center" href="#">Inicio</a></li>
+                    <li class="flex content-cemter"><RouterLink class="inter-subtitle-regular content-center" :to="{ name: 'inicio'}">Inicio</RouterLink></li>
                     <li class="flex content-cemter"><RouterLink class="inter-subtitle-regular content-center" :to="{ name: 'figuras'}">Figuras</RouterLink></li>
-                    <li class="flex content-cemter"><RouterLink class="inter-subtitle-regular content-center"  :to="{ name: 'ofertas'}">Ofertas</RouterLink></li>
+                    <li class="flex content-cemter"><RouterLink class="inter-subtitle-regular content-center" :to="{ name: 'ofertas'}">Ofertas</RouterLink></li>
                 </ul>
                 <div class="hidden md:flex lg:justify-end flex-row gap-x-7">
                     <form aria-hidden="true" tabindex="0"
@@ -26,7 +26,7 @@
                     <div class="flex flex-row py-3 gap-x-5">
                         <button  @click="open = true" ><i class="fa-solid fa-user fa-2xl leading-none cursor-pointer" style="color: #539ff0;" ></i></button>
                         <button><RouterLink class="fa-solid fa-cart-shopping fa-2xl leading-none cursor-pointer" style="color: #539ff0;" :to="{ name: 'carrito'}"></RouterLink></button>
-                    </div>                    
+                    </div>
                 </div>
             </div>
         </div>

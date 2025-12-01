@@ -81,11 +81,11 @@ const agregarAlCarrito = (nombre) => {
 </script>
 
 <template>
-    
+
     <div class="flex justify-center items-center flex-wrap gap-6  bg-gray-900 min-h-screen ">
         <div class="w-full flex justify-center mt-10">
             <nav class="flex items-center gap-2">
-                
+
                 <button
                     class="px-4 py-2 text-sm font-bold text-white bg-indigo-600 rounded-lg border border-indigo-500 hover:bg-indigo-500 transition-colors">
                     Figuras de anime
@@ -102,10 +102,10 @@ const agregarAlCarrito = (nombre) => {
         </div>
         <div v-for="producto in productos"
             class="bg-gray-700 hover:bg-gray-600 p-4  rounded-xl shadow-2xl max-w-xs w-full flex flex-col items-center relative overflow-hidden">
-              <div class="absolute right-0 top-0 h-16 w-16">
-                <div
-                    class="absolute transform rotate-45 bg-green-600 text-center text-white font-semibold py-1 right-[-35px] top-[32px] w-[170px]">
-                    {{ producto.descuento }}
+                <div class="absolute right-0 top-0 h-16 w-16">
+                    <div
+                        class="absolute transform rotate-45 bg-green-600 text-center text-white font-semibold py-1 right-[-35px] top-[32px] w-[170px]">
+                        {{ producto.descuento }}
                     </div>
                 </div>
             <div class="bg-white rounded-lg p-2 mb-3">
@@ -128,7 +128,7 @@ const agregarAlCarrito = (nombre) => {
                     <span class="text-xl font-bold text-white block" :aria-label="'Precio: ' + producto.precio + ' dólares'">${{ producto.precio }}</span>
                 </div>
             </div>
-            <button @click="agregarAlCarrito(producto.nombre)" 
+            <button @click="agregarAlCarrito(producto.nombre)"
                 :aria-label="`Agregar ${producto.nombre} al carrito`"
                 class="w-full bg-indigo-600 hover:bg-indigo-500 text-white font-bold py-3 rounded-lg transition duration-200 shadow-md">
                 Agregar al carrito
