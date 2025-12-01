@@ -12,7 +12,7 @@
                 <ul class="hidden xl:flex flex-row gap-x-5 mx-5 justify-center content-center" role="navigation">
                     <li class="flex content-cemter"><a class="inter-subtitle-regular content-center" href="#">Inicio</a></li>
                     <li class="flex content-cemter"><RouterLink class="inter-subtitle-regular content-center" :to="{ name: 'figuras'}">Figuras</RouterLink></li>
-                    <li class="flex content-cemter"><a class="inter-subtitle-regular content-center" href="#">Ofertas</a></li>
+                    <li class="flex content-cemter"><RouterLink class="inter-subtitle-regular content-center"  :to="{ name: 'ofertas'}">Ofertas</RouterLink></li>
                 </ul>
                 <div class="hidden md:flex lg:justify-end flex-row gap-x-7">
                     <form aria-hidden="true" tabindex="0"
@@ -69,7 +69,7 @@
               id="email"
               type="email"
               required
-              class="mt-2 block w-full rounded-md bg-white/5 px-3 py-2 text-white outline outline-1 outline-white/10 placeholder-gray-500 focus:outline-indigo-500"
+              class="mt-2 block w-full rounded-md bg-white/5 px-3 py-2 text-white outline outline-white/10 placeholder-gray-500 focus:outline-indigo-500"
             />
           </div>
 
@@ -83,7 +83,7 @@
               id="password"
               type="password"
               required
-              class="mt-2 block w-full rounded-md bg-white/5 px-3 py-2 text-white outline outline-1 outline-white/10 placeholder-gray-500 focus:outline-indigo-500"
+              class="mt-2 block w-full rounded-md bg-white/5 px-3 py-2 text-white outline outline-white/10 placeholder-gray-500 focus:outline-indigo-500"
             />
           </div>
 
