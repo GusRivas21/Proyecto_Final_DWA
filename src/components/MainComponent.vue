@@ -3,15 +3,18 @@ import { ref, onMounted, onUnmounted } from 'vue';
 
 const slides = [
     {
-        image: 'https://static.xtralife.com/conversions/XJC6-DD99401236-medium_w640_h480_q75-4897011185859-1655291361.webp',
+        image: '/img/star_wars_figure.webp',
         bg: ''
     },
+    { image: '/img/spiderman_funko.jpg' },
+    { image: '/img/Batman_figure.webp'},
     { image: '/img/Iron_figura.webp' },
     { image: '/img/Harry_funko.webp' },
     { image: '/img/Mitsuri_figura.webp' }
 ];
 
 const currentSlide = ref(0);
+let slideInterval = null;
 
 const nextSlide = () => {
     currentSlide.value = (currentSlide.value + 1) % slides.length;
@@ -22,13 +25,27 @@ const prevSlide = () => {
         (currentSlide.value - 1 + slides.length) % slides.length;
 };
 
+const startSlideAutoPlay = () => {
+    slideInterval = setInterval(() => {
+        nextSlide();
+    }, 5000); // Cambia cada 5 segundos
+};
+
+const stopSlideAutoPlay = () => {
+    if (slideInterval) {
+        clearInterval(slideInterval);
+        slideInterval = null;
+    }
+};
+
 // Carrusel automático (solo imágenes)
 const autoSlides = [
     { image: '/img/Superman.jpeg' },
+    { image: '/img/geto_funko.webp'},
     { image: '/img/Gojo_figura.jpg' },
     { image: '/img/John_Wick_figura2.webp' },
     { image: '/img/coleccion_Marvel.png' },
-    { image: 'https://static.xtralife.com/conversions/XJC6-DD99401236-medium_w640_h480_q75-4897011185859-1655291361.webp' }
+    { image: '/img/my_hero_academy.webp' }
 ];
 
 const currentAutoSlide = ref(0);
@@ -48,10 +65,12 @@ const stopAutoSlide = () => {
 };
 
 onMounted(() => {
+    startSlideAutoPlay();
     startAutoSlide();
 });
 
 onUnmounted(() => {
+    stopSlideAutoPlay();
     stopAutoSlide();
 });
 
@@ -63,6 +82,46 @@ const features = [
     { title: 'Envío Seguro', text: 'Embalaje reforzado para que tus figuras lleguen en perfecto estado.' },
     { title: 'Pago Seguro', text: 'Multiples métodos de pago con protección contra fraude.' },
     { title: 'Devoluciones', text: 'Cambio y devolución fácil dentro de los 14 días.' }
+];
+
+const cajas = [
+    {
+        id: 1,
+        nombre: 'Caja Básica',
+        precio: 24.99,
+        destacado: false,
+        items: [
+            '3 figuras de 15 cm',
+            'Envío rápido incluido',
+            'Soporte por email'
+        ]
+    },
+    {
+        id: 2,
+        nombre: 'Caja Premium',
+        precio: 54.99,
+        destacado: true,
+        etiqueta: 'MÁS POPULAR',
+        items: [
+            '5 figuras de 20 cm',
+            '2 figuras de 30 cm',
+            'Envío express gratis',
+            'Acceso VIP a lanzamientos',
+            'Acceso a catálogo exclusivo'
+        ]
+    },
+    {
+        id: 3,
+        nombre: 'Caja Coleccionista',
+        precio: 37.99,
+        destacado: false,
+        items: [
+            '5 figuras de 25 cm',
+            'Figuras edición limitada',
+            'Envío express internacional',
+            'Seguro de envío incluido'
+        ]
+    }
 ];
 </script>
 
@@ -125,7 +184,7 @@ const features = [
     </section>
 
     <!-- Carrusel -->
-    <section class="w-full bg-[#0B0D1A] py-24 px-6 relative overflow-hidden">
+    <section class="w-full bg-[#0B0D1A] py-20 px-6 relative overflow-hidden">
 
         <div class="max-w-7xl mx-auto grid grid-cols-6 gap-12 items-center">
 
@@ -149,7 +208,7 @@ const features = [
 
                 <div class="space-y-4">
                         <div class="flex gap-4 items-center" v-for="(f, idx) in features" :key="idx">
-                        <div class="flex-shrink-0">
+                        <div class="shrink-0">
                             <div class="flex items-center justify-center h-10 w-10 rounded-full bg-blue-500">
                                 <svg class="h-6 w-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
@@ -160,6 +219,56 @@ const features = [
                                 <h3 class="text-blue-400 font-bold">{{ f.title }}</h3>
                                 <p class="text-gray-400 text-sm">{{ f.text }}</p>
                         </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="w-full bg-[#0B0D1A] py-24 px-6 relative overflow-hidden">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16">
+                <p class="text-gray-400 text-sm uppercase tracking-widest mb-2">Cajas de Figuras</p>
+                <h2 class="text-5xl md:text-6xl font-extrabold text-white mb-2">
+                    Elige Tu Caja Sorpresa
+                </h2>
+                <h3 class="text-4xl md:text-5xl font-extrabold text-white">
+                    de Colección
+                </h3>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+                <div v-for="caja in cajas" :key="caja.id" :class="['caja-card', { 'caja-destacado': caja.destacado }]">
+                    <div v-if="caja.destacado" class="absolute -top-4 left-1/2 transform -translate-x-1/2 bg-blue-500 text-white px-4 py-1 rounded-full text-sm font-bold">
+                        {{ caja.etiqueta }}
+                    </div>
+
+                    <div class="flex flex-col h-full">
+                        <div class="mb-6">
+                            <p class="text-blue-400 font-semibold text-sm mb-2">{{ caja.nombre }}</p>
+                            <div class="flex items-baseline gap-1">
+                                <span class="text-5xl font-extrabold text-white">${{ caja.precio }}</span>
+                                <span class="text-gray-400 text-lg"> Dolares</span>
+                            </div>
+                            <p class="text-gray-400 text-sm mt-3">Te Ofrecemos</p>
+                            <div class="border-t border-gray-600 mt-4 pt-4"></div>
+                        </div>
+
+                        <ul class="space-y-3 mb-8 grow">
+                            <li v-for="(item, idx) in caja.items" :key="idx" class="flex items-start gap-3">
+                                <svg class="h-5 w-5 text-blue-400 shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+                                </svg>
+                                <span class="text-gray-300 text-sm">{{ item }}</span>
+                            </li>
+                        </ul>
+
+                        <button class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-4 rounded-lg transition duration-200 flex items-center justify-center gap-2">
+                            <svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
+                            </svg>
+                            Comprar
+                        </button>
                     </div>
                 </div>
             </div>
@@ -285,6 +394,41 @@ const features = [
     filter: drop-shadow(0 20px 50px rgba(84, 167, 255, 0.2));
 }
 
+/* Tarjetas de Cajas */
+.caja-card {
+    border: 2px solid rgba(59, 130, 246, 0.3);
+    border-radius: 12px;
+    padding: 2rem;
+    background: linear-gradient(135deg, rgba(30, 58, 138, 0.2), rgba(15, 23, 42, 0.4));
+    position: relative;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    backdrop-filter: blur(10px);
+}
+
+.caja-card:hover {
+    border-color: rgba(59, 130, 246, 0.8);
+    background: linear-gradient(135deg, rgba(30, 58, 138, 0.5), rgba(15, 23, 42, 0.8));
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 
+        0 20px 40px rgba(59, 130, 246, 0.2),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1),
+        0 0 30px rgba(84, 167, 255, 0.15);
+}
+
+.caja-destacada {
+    border-color: rgba(59, 130, 246, 0.8);
+    background: linear-gradient(135deg, rgba(30, 58, 138, 0.4), rgba(15, 23, 42, 0.6));
+    position: relative;
+    box-shadow: 0 0 20px rgba(84, 167, 255, 0.1);
+}
+
+.caja-destacada:hover {
+    box-shadow: 
+        0 25px 50px rgba(59, 130, 246, 0.3),
+        inset 0 1px 0 rgba(255, 255, 255, 0.15),
+        0 0 40px rgba(84, 167, 255, 0.25);
+}
+
 /* pequeños ajustes responsivos */
 @media (max-width: 768px) {
     .edition { font-size: 2.2rem; }
@@ -292,6 +436,7 @@ const features = [
     .arrow { display: none; }
     .chev { font-size: 20px; }
     .auto-image-wrapper { display: none; }
+    .plan-card { padding: 1.5rem; }
     }
 
 </style>
