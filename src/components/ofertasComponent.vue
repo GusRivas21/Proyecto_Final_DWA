@@ -1,9 +1,9 @@
 <script setup>
 import { ref } from 'vue';
-import imgAllMight from '../assets/img/imgAllMight.png';
-import imgIzuku from '../assets/img/imgIzuku.png';
-import imgShoto from '../assets/img/imgshoto.png';
-import imgLuffy from '../assets/img/imgLuffy.png';
+const imgAllMight = '/img/imgAllMight.png';
+const imgIzuku = '/img/imgIzuku.png';
+const imgShoto = '/img/imgshoto.png';
+const imgLuffy = '/img/imgLuffy.png';
 
 
 const productos = ref([

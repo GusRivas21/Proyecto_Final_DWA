@@ -1,14 +1,14 @@
 import { createRouter, createMemoryHistory, createWebHistory } from 'vue-router'
 import MainComponent from '../components/MainComponent.vue'
-import figuresComponent from '../components/figuresComponent.vue'
-import cartcomponent from '../components/CartComponent.vue'
-import ofertasComponent from '../components/OfertasComponent.vue'
+import FiguresComponent from '../components/figuresComponent.vue'
+import CartComponent from '../components/CartComponent.vue'
+import OfertasComponent from '../components/ofertasComponent.vue'
 const routes = [
     { path: '/', component: MainComponent }, //enlace a la vista principal
     { path: '/inicio', component: MainComponent, name: 'inicio' }, //enlace al componente MainComponent
-    { path: '/figuras', component: figuresComponent, name: 'figuras'}, //enlace para el componesnte de figura
-    { path: '/carrito', component: cartcomponent, name: 'carrito'}, //enlace de carrito
-    { path: '/ofertas', component: ofertasComponent, name: 'ofertas'}
+    { path: '/figuras', component: FiguresComponent, name: 'figuras'}, //enlace para el componesnte de figura
+    { path: '/carrito', component: CartComponent, name: 'carrito'}, //enlace de carrito
+    { path: '/ofertas', component: OfertasComponent, name: 'ofertas'}
 ]
 
 const router = createRouter({

@@ -2,12 +2,13 @@
 import { ref, onMounted, onUnmounted } from 'vue';
 
 const slides = [
-    { image: 'https://static.xtralife.com/conversions/XJC6-DD99401236-medium_w640_h480_q75-4897011185859-1655291361.webp',
+    {
+        image: 'https://static.xtralife.com/conversions/XJC6-DD99401236-medium_w640_h480_q75-4897011185859-1655291361.webp',
         bg: ''
     },
-    { image: './src/assets/img/Iron_figura.webp',},
-    { image: './src/assets/img/Harry_funko.webp' },
-    { image: './src/assets/img/Mitsuri_figura.webp' }
+    { image: '/img/Iron_figura.webp' },
+    { image: '/img/Harry_funko.webp' },
+    { image: '/img/Mitsuri_figura.webp' }
 ];
 
 const currentSlide = ref(0);
@@ -23,10 +24,10 @@ const prevSlide = () => {
 
 // Carrusel automático (solo imágenes)
 const autoSlides = [
-    { image: './src/assets/img/Superman.jpeg'},
-    { image: './src/assets/img/Gojo_figura.jpg' },
-    { image: './src/assets/img/John_Wick_figura2.webp' },
-    { image: './src/assets/img/coleccion_Marvel.png' },
+    { image: '/img/Superman.jpeg' },
+    { image: '/img/Gojo_figura.jpg' },
+    { image: '/img/John_Wick_figura2.webp' },
+    { image: '/img/coleccion_Marvel.png' },
     { image: 'https://static.xtralife.com/conversions/XJC6-DD99401236-medium_w640_h480_q75-4897011185859-1655291361.webp' }
 ];
 
@@ -94,9 +95,9 @@ const features = [
                         Explorar <span class="ml-2">›</span>
                     </button>
 
-                    <button class="cta">
+                    <RouterLink to="/ofertas" class="cta">
                         Ofertas <span class="ml-2">🏷️</span>
-                    </button>
+                    </RouterLink>
                 </div>
             </div>
 

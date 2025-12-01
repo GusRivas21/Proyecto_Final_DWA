@@ -1,9 +1,10 @@
 <script setup>
 import { ref } from 'vue';
-import imgAllMight from '../assets/img/imgAllMight.png';
-import imgIzuku from '../assets/img/imgIzuku.png';
-import imgShoto from '../assets/img/imgshoto.png';
-import imgLuffy from '../assets/img/imgLuffy.png';
+// Assets in `public/` are served from the root; reference them with absolute paths
+const imgAllMight = '/img/imgAllMight.png';
+const imgIzuku = '/img/imgIzuku.png';
+const imgShoto = '/img/imgshoto.png';
+const imgLuffy = '/img/imgLuffy.png';
 
 
 const productos = ref([
@@ -73,11 +74,9 @@ const agregarAlCarrito = (nombre) => {
 </script>
 
 <template>
-    
     <div class="flex justify-center items-center flex-wrap gap-6  bg-gray-900 min-h-screen ">
         <div class="w-full flex justify-center mt-10">
             <nav class="flex items-center gap-2">
-                
                 <button
                     class="px-4 py-2 text-sm font-bold text-white bg-indigo-600 rounded-lg border border-indigo-500 hover:bg-indigo-500 transition-colors">
                     FIGURAS DE ANIME
@@ -114,7 +113,7 @@ const agregarAlCarrito = (nombre) => {
                     <span class="text-xl font-bold text-white block" :aria-label="'Precio: ' + producto.precio + ' dólares'">${{ producto.precio }}</span>
                 </div>
             </div>
-            <button @click="agregarAlCarrito(producto.nombre)" 
+            <button @click="agregarAlCarrito(producto.nombre)"
                 :aria-label="`Agregar ${producto.nombre} al carrito`"
                 class="w-full bg-indigo-600 hover:bg-indigo-500 text-white font-bold py-3 rounded-lg transition duration-200 shadow-md">
                 Agregar al carrito
