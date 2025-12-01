@@ -2,11 +2,10 @@
 import { ref, onMounted, onUnmounted } from 'vue';
 
 const slides = [
-    {
-        // figura + caja de fondo
-        image: 'https://static.xtralife.com/conversions/XJC6-DD99401236-medium_w640_h480_q75-4897011185859-1655291361.webp',
+    { image: 'https://static.xtralife.com/conversions/XJC6-DD99401236-medium_w640_h480_q75-4897011185859-1655291361.webp',
         bg: ''
     },
+    { image: './src/assets/img/Iron_figura.webp',},
     { image: './src/assets/img/Harry_funko.webp' },
     { image: './src/assets/img/Mitsuri_figura.webp' }
 ];
@@ -24,9 +23,10 @@ const prevSlide = () => {
 
 // Carrusel automático (solo imágenes)
 const autoSlides = [
-    { image: '' },
-    { image: '' },
-    { image: '' },
+    { image: './src/assets/img/Superman.jpeg'},
+    { image: './src/assets/img/Gojo_figura.jpg' },
+    { image: './src/assets/img/John_Wick_figura2.webp' },
+    { image: './src/assets/img/coleccion_Marvel.png' },
     { image: 'https://static.xtralife.com/conversions/XJC6-DD99401236-medium_w640_h480_q75-4897011185859-1655291361.webp' }
 ];
 
