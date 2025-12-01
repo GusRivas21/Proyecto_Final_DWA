@@ -11,7 +11,7 @@
             </section>
             <section class="mb-5">
                 <h4 class="inter-text-semi-bold mb-6  ">Productos</h4>
-                <ul class="inter-text-regular  ">
+                <ul class="inter-text-regular">
                     <li class="mb-4"><a href="#">Figuras de Anime</a></li>
                     <li class="mb-4"><a href="#">Figuras de Comic</a></li>
                     <li class="mb-4"><a href="#">Figuras de Peliculas</a></li>

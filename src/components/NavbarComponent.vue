@@ -24,7 +24,7 @@
                     </form>
 
                     <div class="flex flex-row py-3 gap-x-5">
-                        <button><i class="fa-solid fa-user fa-2xl leading-none cursor-pointer" style="color: #539ff0;" ></i></button>
+                        <button  @click="open = true" ><i class="fa-solid fa-user fa-2xl leading-none cursor-pointer" style="color: #539ff0;" ></i></button>
                         <button><RouterLink class="fa-solid fa-cart-shopping fa-2xl leading-none cursor-pointer" style="color: #539ff0;" :to="{ name: 'carrito'}"></RouterLink></button>
                     </div>                    
                 </div>
@@ -47,12 +47,65 @@
                         </button>
                     </form>
                     <div class="flex flex-row py-3 gap-x-5 justify-center">
-                        <button><i class="fa-solid fa-user fa-2xl leading-none cursor-pointer" style="color: #539ff0;"></i></button>
+                        <button  @click="open = true" ><i class="fa-solid fa-user fa-2xl leading-none cursor-pointer" style="color: #539ff0;"></i></button>
                         <button><i class="fa-solid fa-cart-shopping fa-2xl leading-none cursor-pointer" style="color: #539ff0;"></i></button>
                     </div>                    
                 </div>            
             </div>
     </nav>
+      <div>
+    <div v-if="open" class="fixed inset-0 bg-black/60 flex items-center justify-center p-4 z-50">
+      <div class="bg-[#141420] border border-gray-700 rounded-2xl shadow-2xl p-8 w-full max-w-md animate-fadeIn">
+        <div class="text-center">
+          <h2 class="inter-subtitle-semi-bold text-white text-xl">EL SANTUARIO</h2>
+          <h3 class="mt-6 text-2xl font-bold tracking-tight text-white">Iniciar sesión</h3>
+        </div>
+
+        <form class="mt-10 space-y-6" @submit.prevent="login">
+          <div>
+            <label for="email" class="block text-sm font-medium text-gray-200">Correo electrónico</label>
+            <input
+              v-model="email"
+              id="email"
+              type="email"
+              required
+              class="mt-2 block w-full rounded-md bg-white/5 px-3 py-2 text-white outline outline-1 outline-white/10 placeholder-gray-500 focus:outline-indigo-500"
+            />
+          </div>
+
+          <div>
+            <div class="flex items-center justify-between">
+              <label for="password" class="block text-sm font-medium text-gray-200">Contraseña</label>
+              <a href="#" class="text-sm font-semibold text-indigo-400 hover:text-indigo-300">¿Olvidaste tu contraseña?</a>
+            </div>
+            <input
+              v-model="password"
+              id="password"
+              type="password"
+              required
+              class="mt-2 block w-full rounded-md bg-white/5 px-3 py-2 text-white outline outline-1 outline-white/10 placeholder-gray-500 focus:outline-indigo-500"
+            />
+          </div>
+
+          <button type="submit" class="w-full flex justify-center rounded-md bg-indigo-500 px-3 py-2 text-sm font-semibold text-white hover:bg-indigo-400">
+            Iniciar sesión
+          </button>
+        </form>
+
+        <p class="mt-8 text-center text-sm text-gray-400">
+          ¿No tienes cuenta?
+          <a href="#" class="font-semibold text-indigo-400 hover:text-indigo-300"> Crea una cuenta</a>
+        </p>
+
+        <button
+          @click="open = false"
+          class="mt-6 w-full py-2 border border-gray-600 text-gray-300 rounded-lg hover:bg-gray-700 transition"
+        >
+          Cerrar
+        </button>
+      </div>
+    </div>
+  </div>
 </template>
 
 <style>
@@ -72,11 +125,37 @@
     font-size: 24px;
     line-height: 100%;
     }
+
+    .inter-text-regular {
+    font-family: "Inter", sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    font-style: normal;
+    line-height: 100%;
+    }
+
+    .inter-text-semi-bold {
+    font-family: "Inter", sans-serif;
+    font-weight: 500;
+    font-style: normal;
+    font-size: 16px;
+    line-height: 100%;
+    }
+    @keyframes fadeIn {
+    from { opacity: 0; transform: scale(0.95); }
+    to { opacity: 1; transform: scale(1); }
+    }
+    .animate-fadeIn {
+    animation: fadeIn 0.2s ease-out;
+}
 </style>
 
 <script setup>
+
 import { ref } from "vue";
 import { RouterLink } from "vue-router";
-
 const isOpen = ref(false);
+const open = ref(false);
+const email = ref("");
+const password = ref("");
 </script>
