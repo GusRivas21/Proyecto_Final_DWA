@@ -343,7 +343,7 @@ const faqs = ref(faqsData.map(faq => ({ ...faq, abierto: false })));
                         <div class="mb-6">
                             <p class="text-blue-400 font-semibold text-sm mb-3">{{ caja.nombre }}</p>
                             <div class="flex items-baseline gap-2 flex-wrap">
-                                <span class="text-2xl md:text-3xl lg:text-4xl font-bold text-white break-words min-w-0">${{ caja.precio }}</span>
+                                <span class="text-2xl md:text-3xl lg:text-4xl font-bold text-white wrap-break-words min-w-0">${{ caja.precio }}</span>
                                 <span class="text-gray-400 text-xs md:text-sm">USD</span>
                             </div>
                             <p class="text-gray-400 text-sm mt-4">Te Ofrecemos</p>
