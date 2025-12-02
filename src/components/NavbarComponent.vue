@@ -6,6 +6,7 @@ const isOpen = ref(false);
 const open = ref(false);
 const email = ref("");
 const password = ref("");
+
 </script>
 
 <template>
