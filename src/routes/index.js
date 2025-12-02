@@ -1,7 +1,7 @@
 import { createRouter, createMemoryHistory, createWebHistory } from 'vue-router'
 import MainComponent from '../components/MainComponent.vue'
 import FiguresComponent from '../components/figuresComponent.vue'
-import CartComponent from '../components/CartComponent.vue'
+import CartComponent from '../components/cartcomponent.vue'
 import OfertasComponent from '../components/ofertasComponent.vue'
 const routes = [
     { path: '/', component: MainComponent }, //enlace a la vista principal

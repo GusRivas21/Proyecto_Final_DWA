@@ -63,7 +63,7 @@ const procederPago = (producto) => {
 
 <template>
     <main class="bg-gray-900 min-h-screen p-6" role="main">
-        <h1 class="text-3xl font-bold text-white mb-6" aria-label="Carrito de Compras">Carrito de Compras</h1>
+        <h1 aria-label="Carrito de Compras" class="text-3xl font-bold text-white mb-6">Carrito de Compras</h1>
         <div class="max-w-7xl mx-auto flex flex-col lg:flex-row gap-6">
             <section class="w-full lg:w-2/3 space-y-4" aria-label="Lista de productos en el carrito">
                 <article v-for="producto in productos" :key="producto.id"
