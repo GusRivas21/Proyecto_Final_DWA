@@ -38,7 +38,7 @@ const stopSlideAutoPlay = () => {
     }
 };
 
-// Carrusel automático (solo imágenes)
+// Carrusel automático
 const autoSlides = [
     { image: '/img/Superman.jpeg' },
     { image: '/img/geto_funko.webp'},
@@ -128,45 +128,45 @@ const cajas = [
 const testimonios = [
     {
         id: 1,
-        nombre: 'Carlos M.',
-        rol: 'Suscriptor Premium',
+        nombre: 'Ana Gómez',
+        rol: 'Coleccionista',
         rating: 5,
-        texto: 'Recibir mi caja mensual se ha convertido en el momento más esperado del mes. La atención al detalle en cada figura es increíble y el empaque protege cada figura hasta la selección de personajes que siempre incluye piezas difíciles de encontrar en el mercado. ¡La figura de hoy de este mes es, sin duda, la pieza central de mi colección ahora.'
+        texto: 'La calidad de las figuras es impresionante. Cada detalle está perfectamente recreado. ¡Mi colección nunca había lucido tan bien!'
     },
     {
         id: 2,
-        nombre: 'Carlos M.',
-        rol: 'Suscriptor Premium',
-        rating: 5,
-        texto: 'Llevo 3 meses recibiendo la suscripción máxima y estoy muy satisfecho. El mes pasado recibí una figura firmada ¡No podía creerlo! Siempre que recibo mi caja mensual me sorprenden. Espero que siga siendo así para todas mis suscripciones.'
+        nombre: 'Luis Fernández',
+        rol: 'Fanático de cómics',
+        rating: 4,
+        texto: 'El proceso de compra fue sencillo y el envío rápido. Estoy muy satisfecho con mi compra y definitivamente volveré a comprar aquí.'
     },
     {
         id: 3,
-        nombre: 'Carlos M.',
-        rol: 'Suscriptor Premium',
+        nombre: 'María Rodríguez',
+        rol: 'Aficionada a la cultura pop',
         rating: 5,
-        texto: 'Como coleccionista principiante, no podía estar más contento. Mi primera caja mensual fue solo luego bastante. El servicio de atención al cliente fue excelente en responder todas mis preguntas. Espero que siga siendo así para el resto de mis suscripciones.'
+        texto: 'Me encanta la variedad de figuras disponibles. Encontré personajes que no veía en ningún otro lugar. ¡Totalmente recomendado!'
     },
     {
         id: 4,
-        nombre: 'Carlos M.',
-        rol: 'Suscriptor Premium',
-        rating: 5,
-        texto: 'Llevo 3 meses recibiendo la suscripción máxima y estoy muy satisfecho. El mes pasado recibí una figura firmada ¡No podía creerlo! Siempre que recibo mi caja mensual me sorprenden. Espero que siga siendo así para todas mis suscripciones.'
+        nombre: 'Carlos Sánchez',
+        rol: 'Joven coleccionista',
+        rating: 4,
+        texto: 'Las figuras llegaron en perfectas condiciones y el embalaje fue muy cuidadoso. La atención al cliente también fue excelente.'
     },
     {
         id: 5,
-        nombre: 'Carlos M.',
-        rol: 'Suscriptor Premium',
+        nombre: 'Sofía Martínez',
+        rol: 'Entusiasta del anime',
         rating: 5,
-        texto: 'Recibir mi caja mensual se ha convertido en el momento más esperado del mes. La atención al detalle en cada figura es increíble y el empaque protege cada figura hasta la selección de personajes que siempre incluye piezas difíciles de encontrar en el mercado. ¡La figura de hoy de este mes es, sin duda, la pieza central de mi colección ahora.'
+        texto: 'Cada figura que he comprado supera mis expectativas. La calidad y el detalle son excepcionales. ¡Estoy encantada con mis adquisiciones!'
     },
     {
         id: 6,
-        nombre: 'Carlos M.',
-        rol: 'Suscriptor Premium',
+        nombre: 'Javier López',
+        rol: 'Coleccionista veterano',
         rating: 5,
-        texto: 'Llevo 3 meses recibiendo la suscripción máxima y estoy muy satisfecho. El mes pasado recibí una figura firmada ¡No podía creerlo! Siempre que recibo mi caja mensual me sorprenden. Espero que siga siendo así para todas mis suscripciones.'
+        texto: 'He comprado en varias tiendas de figuras, pero esta es sin duda la mejor. La calidad, el servicio y la variedad son insuperables.'
     }
 ];
 
@@ -174,23 +174,38 @@ const testimonios = [
 const faqsData = [
     {
         id: 1,
-        pregunta: '¿Cómo funcionan las suscripciones mensuales?',
-        respuesta: 'Cada mes recibes una caja sorpresa con figuras según tu plan. Puedes pausar o cancelar en cualquier momento desde tu cuenta.'
+        pregunta: '¿Cómo puedo rastrear mi pedido?',
+        respuesta: 'Una vez que tu pedido haya sido enviado, recibirás un correo electrónico con un número de seguimiento y un enlace para rastrear tu paquete en tiempo real.'
     },
     {
         id: 2,
-        pregunta: '¿Cómo funcionan las suscripciones mensuales?',
-        respuesta: 'Cada mes recibes una caja sorpresa con figuras según tu plan. Puedes pausar o cancelar en cualquier momento desde tu cuenta.'
+        pregunta: '¿Qué opciones de pago aceptan?',
+        respuesta: 'Aceptamos tarjetas de crédito y débito, PayPal, y transferencias bancarias. Todos los pagos son procesados de manera segura.'
     },
     {
         id: 3,
-        pregunta: '¿Cómo funcionan las suscripciones mensuales?',
-        respuesta: 'Cada mes recibes una caja sorpresa con figuras según tu plan. Puedes pausar o cancelar en cualquier momento desde tu cuenta.'
+        pregunta: '¿Puedo cambiar o cancelar mi pedido?',
+        respuesta: 'Puedes cambiar o cancelar tu pedido dentro de las primeras 24 horas después de realizarlo. Después de este período, no podremos garantizar cambios o cancelaciones.'
     },
     {
         id: 4,
-        pregunta: '¿Cómo funcionan las suscripciones mensuales?',
-        respuesta: 'Cada mes recibes una caja sorpresa con figuras según tu plan. Puedes pausar o cancelar en cualquier momento desde tu cuenta.'
+        pregunta: '¿Ofrecen garantía en sus productos?',
+        respuesta: 'Sí, todos nuestros productos cuentan con una garantía de 12 meses contra defectos de fabricación. Consulta nuestra política de garantía para más detalles.'
+    },
+    {
+        id: 5,
+        pregunta: '¿Cómo puedo contactar al servicio al cliente?',
+        respuesta: 'Puedes contactarnos a través del formulario en nuestra página de contacto, por correo electrónico.'
+    },
+    {
+        id: 6,
+        pregunta: '¿Tienen tiendas físicas?',
+        respuesta: 'Actualmente operamos exclusivamente en línea para ofrecerte la mejor selección y precios. Sin embargo, estamos considerando abrir tiendas físicas en el futuro.'
+    },
+    {
+        id: 7,
+        pregunta: '¿Ofrecen descuentos para compras al por mayor?',
+        respuesta: 'Sí, ofrecemos descuentos especiales para compras al por mayor. Por favor, contacta a nuestro equipo de ventas para más información.'
     }
 ];
 
@@ -410,12 +425,11 @@ const faqs = ref(faqsData.map(faq => ({ ...faq, abierto: false })));
                             <p class="text-white font-semibold text-left">{{ faq.pregunta }}</p>
                             <span :class="['text-2xl transition', faq.abierto ? 'text-blue-400 rotate-45' : 'text-gray-400']">+</span>
                         </button>
-                        <div v-if="faq.abierto" 
+                        <div v-if="faq.abierto"
                                     :id="`faq-panel-${index}`"
                                     role="region"
                                     :aria-labelledby="`faq-btn-${index}`"
                                     class="p-4 bg-gray-800/10 border-l-2 border-blue-500 mt-1 rounded">
-                                    
                             <p class="text-gray-300 text-sm">{{ faq.respuesta }}</p>
                         </div>
                     </div>
@@ -428,13 +442,36 @@ const faqs = ref(faqsData.map(faq => ({ ...faq, abierto: false })));
 <style scoped>
 /* Texto grande con trazo rojo y relleno transparente */
 .edition {
-    font-size: 4.25rem;
-    line-height: 1;
+    /* Responsive stroke-outline heading */
+    font-size: clamp(1.6rem, 4vw, 4.25rem);
+    line-height: 1.02; /* pequeño espacio para evitar colisiones */
     font-weight: 800;
     color: transparent;
     -webkit-text-stroke: 2px #7f1416;
     mix-blend-mode: normal;
-    margin-top: -8px;
+    margin-top: -0.4rem; /* menos negativo en móvil */
+    margin-bottom: 0.35rem;
+    display: block;
+    position: relative;
+    z-index: 25; /* asegurar sobre otros elementos visuales */
+}
+
+@media (max-width: 640px) {
+    .edition {
+        font-size: 1.45rem;
+        -webkit-text-stroke: 1px #7f1416;
+        margin-top: 0; /* sin margen negativo en móviles */
+        margin-bottom: 0.25rem;
+        line-height: 1.05;
+    }
+}
+
+@media (min-width: 641px) and (max-width: 1024px) {
+    .edition {
+        font-size: clamp(1.8rem, 3.6vw, 3.8rem);
+        -webkit-text-stroke: 1.5px #7f1416;
+        margin-top: -0.2rem;
+    }
 }
 
 /* Flechas cuadradas oscuras */
@@ -478,15 +515,15 @@ const faqs = ref(faqsData.map(faq => ({ ...faq, abierto: false })));
     justify-content: center;
 }
 
-    .hero-image .bg-box {
-        position: absolute;
-        right: 6%;
-        top: 6%;
-        width: 260px;
-        opacity: 0.12;
-        transform: translateZ(0);
-        pointer-events: none; /* evitar bloquear clicks en móviles */
-    }
+.hero-image .bg-box {
+    position: absolute;
+    right: 6%;
+    top: 6%;
+    width: 260px;
+    opacity: 0.12;
+    transform: translateZ(0);
+    pointer-events: none; /* evitar bloquear clicks en móviles */
+}
 
 .hero-image .figure {
     position: relative;
