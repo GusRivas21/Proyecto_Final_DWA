@@ -33,9 +33,9 @@
             <div v-if="isOpen" class="flex flex-col items-center gap-6 pb-4 ">
                 <div class="h-px w-100 bg-gray-400"></div>
                 <ul class="flex flex-col gap-5 justify-center text-center">
-                    <li class="text-center"><a class="inter-subtitle-regular content-center" href="#">Inicio</a></li>
-                    <li class="text-center"><a class="inter-subtitle-regular content-center" href="#">Figuras</a></li>
-                    <li class="text-center"><a class="inter-subtitle-regular content-center" href="#">Ofertas</a></li>
+                    <li class="text-center"><RouterLink class="inter-subtitle-regular content-center" :to="{ name: 'inicio'}">Inicio</RouterLink></li>
+                    <li class="text-center"><RouterLink class="inter-subtitle-regular content-center" :to="{ name: 'figuras'}">Figuras</RouterLink></li>
+                    <li class="text-center"><RouterLink class="inter-subtitle-regular content-center" :to="{ name: 'ofertas'}">Ofertas</RouterLink></li>
                 </ul>
                 <div class="h-px w-100 bg-gray-400"></div>
                 <div class="flex-col md:hidden">
@@ -49,8 +49,8 @@
                     <div class="flex flex-row py-3 gap-x-5 justify-center">
                         <button  @click="open = true" ><i class="fa-solid fa-user fa-2xl leading-none cursor-pointer" style="color: #539ff0;"></i></button>
                         <button><i class="fa-solid fa-cart-shopping fa-2xl leading-none cursor-pointer" style="color: #539ff0;"></i></button>
-                    </div>                    
-                </div>            
+                    </div>
+                </div>
             </div>
     </nav>
       <div>
