@@ -1,5 +1,6 @@
 <script setup>
 import { ref } from 'vue';
+import Swal from 'sweetalert2';
 const imgAllMight = '/img/imgAllMight.png';
 const imgIzuku = '/img/imgIzuku.png';
 const imgShoto = '/img/imgshoto.png';
@@ -74,8 +75,30 @@ const productos = ref([
 
 ]);
 
-const agregarAlCarrito = (nombre) => {
-    alert(`¡${nombre} agregado al carrito!`);
+const agregarAlCarrito = (producto) => {
+    const Toast = Swal.mixin({
+        toast: true,
+        position: "top-end", 
+        showConfirmButton: false,
+        timer: 3000,
+        timerProgressBar: true,
+        background: '#1f2937', 
+        color: '#ffffff', 
+        didOpen: (toast) => {
+            toast.onmouseenter = Swal.stopTimer;
+            toast.onmouseleave = Swal.resumeTimer;
+        }
+    });
+
+    Toast.fire({
+        icon: "success",
+        title: "¡Agregado!",
+        text: `se añadió al carrito`,
+        imageUrl: producto.imagen,
+        imageWidth: 50, 
+        imageHeight: 50,
+        imageAlt: producto.nombre,
+    });
 }
 
 </script>
