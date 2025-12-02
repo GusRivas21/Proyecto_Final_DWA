@@ -1,5 +1,5 @@
 <script setup>
-import { ref, onMounted, onUnmounted } from 'vue';
+import { ref, onMounted, onUnmounted, computed } from 'vue';
 
 const slides = [
     {
@@ -73,6 +73,18 @@ onUnmounted(() => {
     stopSlideAutoPlay();
     stopAutoSlide();
 });
+
+// Colores para el trazo del texto `.edition` según el slide activo
+const strokeColors = [
+    '#2563eb', // slide 0 - rojo por defecto
+    '#BA2929', // slide 1 - azul
+    '#E3DC39', // slide 2 - verde
+    '#B01212', // slide 3 - naranja
+    '#D15C2E', // slide 4 - morado
+    '#55BA29'  // slide 5 - rosa/rojo
+];
+
+const currentStroke = computed(() => strokeColors[currentSlide.value % strokeColors.length]);
 
 // Comentarios para features
 const features = [
@@ -222,12 +234,12 @@ const faqs = ref(faqsData.map(faq => ({ ...faq, abierto: false })));
             </button>
 
             <div class="col-span-6 md:col-span-3 relative z-20 max-w-2xl">
-                <h1 class="text-[64px] md:text-7xl font-extrabold text-white leading-tight">
+                <h1 class="text-[48px] md:text-5xl font-bold text-white leading-tight mb-2">
                     Descubre Figuras
                 </h1>
 
                 <!-- Texto grande con trazo y relleno transparente -->
-                <h2 class="edition">Edición Limitada</h2>
+                <h2 class="edition" :style="{ WebkitTextStroke: `2px ${currentStroke}`, color: 'transparent' }">Edición Limitada</h2>
 
                 <p class="text-gray-300 max-w-lg text-lg leading-relaxed mt-4">
                     Lleva a casa a tus héroes de cómic en réplicas de máxima calidad.
@@ -282,7 +294,7 @@ const faqs = ref(faqsData.map(faq => ({ ...faq, abierto: false })));
 
             <!-- Contenido derecha -->
             <div class="col-span-6 md:col-span-3">
-                <h2 class="text-5xl font-extrabold text-white leading-tight mb-4">
+                <h2 class="text-5xl font-bold text-white leading-tight mb-4">
                     Donde Los Personajes Favoritos<br>Cobran Vida
                 </h2>
 
@@ -313,10 +325,10 @@ const faqs = ref(faqsData.map(faq => ({ ...faq, abierto: false })));
         <div class="w-[70%]  mx-auto">
             <div class="text-center mb-16">
                 <p class="text-gray-400 text-sm uppercase tracking-widest mb-2">Cajas de Figuras</p>
-                <h2 class="text-5xl md:text-6xl font-extrabold text-white mb-2">
+                <h2 class="text-5xl md:text-6xl font-bold text-white mb-2">
                     Elige Tu Caja Sorpresa
                 </h2>
-                <h3 class="text-4xl md:text-5xl font-extrabold text-white">
+                <h3 class="text-4xl md:text-5xl font-bold text-white">
                     de Colección
                 </h3>
             </div>
@@ -331,7 +343,7 @@ const faqs = ref(faqsData.map(faq => ({ ...faq, abierto: false })));
                         <div class="mb-6">
                             <p class="text-blue-400 font-semibold text-sm mb-2">{{ caja.nombre }}</p>
                             <div class="flex items-baseline gap-1">
-                                <span class="text-5xl font-extrabold text-white">${{ caja.precio }}</span>
+                                <span class="text-5xl font-bold text-white">${{ caja.precio }}</span>
                                 <span class="text-gray-400 text-lg"> USD </span>
                             </div>
                             <p class="text-gray-400 text-sm mt-3">Te Ofrecemos</p>
@@ -364,7 +376,7 @@ const faqs = ref(faqsData.map(faq => ({ ...faq, abierto: false })));
         <div class="w-[70%]  mx-auto">
             <div class="text-center mb-16">
                 <p class="text-gray-400 text-sm uppercase tracking-widest mb-2">Testimonios</p>
-                <h2 class="text-5xl md:text-6xl font-extrabold text-white">
+                <h2 class="text-5xl md:text-6xl font-bold text-white">
                     Lo Que Dicen Nuestros<br>Coleccionistas
                 </h2>
             </div>
@@ -397,7 +409,7 @@ const faqs = ref(faqsData.map(faq => ({ ...faq, abierto: false })));
             <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
                 <div>
                     <p class="text-gray-400 text-sm uppercase tracking-widest mb-2">FAQ</p>
-                    <h2 class="text-5xl md:text-6xl font-extrabold text-white leading-tight">
+                    <h2 class="text-5xl md:text-6xl font-bold text-white leading-tight">
                         Preguntas Frecuentes:<br>Todo lo que Necesitas<br>Saber
                     </h2>
                     <p class="text-gray-400 text-lg mt-6">
@@ -435,7 +447,7 @@ const faqs = ref(faqsData.map(faq => ({ ...faq, abierto: false })));
 <style scoped>
 /* Texto grande con trazo rojo y relleno transparente */
 .edition {
-    font-size: clamp(1.6rem, 4vw, 4.25rem);
+    font-size: clamp(1.4rem, 3vw, 3rem);
     line-height: 1.02; /* pequeño espacio para evitar colisiones */
     font-weight: 800;
     color: transparent;
