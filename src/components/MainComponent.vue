@@ -282,17 +282,18 @@ const faqs = ref(faqsData.map(faq => ({ ...faq, abierto: false })));
     <!-- Carrusel -->
     <section class="w-full bg-[#0B0D1A] py-20 px-6 relative overflow-hidden">
 
-        <div class="w-[70%] mx-auto">
-            <!-- Imagen arriba con círculo azul -->
-            <div class="auto-image-wrapper flex justify-center items-center relative mb-12">
+        <div class="w-[80%] mx-auto grid grid-cols-1 md:grid-cols-6 gap-12 items-center">
+
+            <!-- Imagen (apila en móvil, izquierda en desktop) -->
+            <div class="auto-image-wrapper col-span-6 md:col-span-3 flex justify-center md:justify-start items-center relative">
                 <!-- Círculo azul de fondo -->
                 <div class="blue-circle"></div>
                 <!-- Imagen que rota -->
                 <img :src="autoSlides[currentAutoSlide].image" class="auto-figure" alt="featured"/>
             </div>
 
-            <!-- Contenido abajo -->
-            <div class="text-center md:text-left">
+            <!-- Contenido -->
+            <div class="col-span-6 md:col-span-3 text-center md:text-left">
                 <h2 class="text-4xl md:text-5xl font-bold text-white leading-tight mb-4">
                     Donde Los Personajes Favoritos<br>Cobran Vida
                 </h2>
@@ -342,7 +343,7 @@ const faqs = ref(faqsData.map(faq => ({ ...faq, abierto: false })));
                         <div class="mb-6">
                             <p class="text-blue-400 font-semibold text-sm mb-3">{{ caja.nombre }}</p>
                             <div class="flex items-baseline gap-2 flex-wrap">
-                                <span class="text-2xl md:text-3xl lg:text-4xl font-bold text-white wrap-break-words">${{ caja.precio }}</span>
+                                <span class="text-2xl md:text-3xl lg:text-4xl font-bold text-white break-words min-w-0">${{ caja.precio }}</span>
                                 <span class="text-gray-400 text-xs md:text-sm">USD</span>
                             </div>
                             <p class="text-gray-400 text-sm mt-4">Te Ofrecemos</p>
