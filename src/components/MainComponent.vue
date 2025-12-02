@@ -123,12 +123,85 @@ const cajas = [
         ]
     }
 ];
+
+// Testimonios
+const testimonios = [
+    {
+        id: 1,
+        nombre: 'Carlos M.',
+        rol: 'Suscriptor Premium',
+        rating: 5,
+        texto: 'Recibir mi caja mensual se ha convertido en el momento más esperado del mes. La atención al detalle en cada figura es increíble y el empaque protege cada figura hasta la selección de personajes que siempre incluye piezas difíciles de encontrar en el mercado. ¡La figura de hoy de este mes es, sin duda, la pieza central de mi colección ahora.'
+    },
+    {
+        id: 2,
+        nombre: 'Carlos M.',
+        rol: 'Suscriptor Premium',
+        rating: 5,
+        texto: 'Llevo 3 meses recibiendo la suscripción máxima y estoy muy satisfecho. El mes pasado recibí una figura firmada ¡No podía creerlo! Siempre que recibo mi caja mensual me sorprenden. Espero que siga siendo así para todas mis suscripciones.'
+    },
+    {
+        id: 3,
+        nombre: 'Carlos M.',
+        rol: 'Suscriptor Premium',
+        rating: 5,
+        texto: 'Como coleccionista principiante, no podía estar más contento. Mi primera caja mensual fue solo luego bastante. El servicio de atención al cliente fue excelente en responder todas mis preguntas. Espero que siga siendo así para el resto de mis suscripciones.'
+    },
+    {
+        id: 4,
+        nombre: 'Carlos M.',
+        rol: 'Suscriptor Premium',
+        rating: 5,
+        texto: 'Llevo 3 meses recibiendo la suscripción máxima y estoy muy satisfecho. El mes pasado recibí una figura firmada ¡No podía creerlo! Siempre que recibo mi caja mensual me sorprenden. Espero que siga siendo así para todas mis suscripciones.'
+    },
+    {
+        id: 5,
+        nombre: 'Carlos M.',
+        rol: 'Suscriptor Premium',
+        rating: 5,
+        texto: 'Recibir mi caja mensual se ha convertido en el momento más esperado del mes. La atención al detalle en cada figura es increíble y el empaque protege cada figura hasta la selección de personajes que siempre incluye piezas difíciles de encontrar en el mercado. ¡La figura de hoy de este mes es, sin duda, la pieza central de mi colección ahora.'
+    },
+    {
+        id: 6,
+        nombre: 'Carlos M.',
+        rol: 'Suscriptor Premium',
+        rating: 5,
+        texto: 'Llevo 3 meses recibiendo la suscripción máxima y estoy muy satisfecho. El mes pasado recibí una figura firmada ¡No podía creerlo! Siempre que recibo mi caja mensual me sorprenden. Espero que siga siendo así para todas mis suscripciones.'
+    }
+];
+
+// FAQ
+const faqsData = [
+    {
+        id: 1,
+        pregunta: '¿Cómo funcionan las suscripciones mensuales?',
+        respuesta: 'Cada mes recibes una caja sorpresa con figuras según tu plan. Puedes pausar o cancelar en cualquier momento desde tu cuenta.'
+    },
+    {
+        id: 2,
+        pregunta: '¿Cómo funcionan las suscripciones mensuales?',
+        respuesta: 'Cada mes recibes una caja sorpresa con figuras según tu plan. Puedes pausar o cancelar en cualquier momento desde tu cuenta.'
+    },
+    {
+        id: 3,
+        pregunta: '¿Cómo funcionan las suscripciones mensuales?',
+        respuesta: 'Cada mes recibes una caja sorpresa con figuras según tu plan. Puedes pausar o cancelar en cualquier momento desde tu cuenta.'
+    },
+    {
+        id: 4,
+        pregunta: '¿Cómo funcionan las suscripciones mensuales?',
+        respuesta: 'Cada mes recibes una caja sorpresa con figuras según tu plan. Puedes pausar o cancelar en cualquier momento desde tu cuenta.'
+    }
+];
+
+const faqs = ref(faqsData.map(faq => ({ ...faq, abierto: false })));
+
 </script>
 
 <template>
     <section class="w-full bg-[#0B0D1A] py-20 px-6 relative overflow-hidden">
 
-        <div class="max-w-7xl mx-auto grid grid-cols-6 gap-8 items-center">
+        <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-6 gap-8 items-center">
 
             <!-- Flecha Izquierda -->
             <button @click="prevSlide" aria-label="Anterior" class="arrow left-6">
@@ -180,7 +253,6 @@ const cajas = [
             <span v-for="(s, index) in slides" :key="index" @click="currentSlide = index" class="dot" :class="index === currentSlide ? 'active' : ''">
             </span>
         </div>
-
     </section>
 
     <!-- Carrusel -->
@@ -274,6 +346,77 @@ const cajas = [
             </div>
         </div>
     </section>
+
+    <!-- Sección Testimonios -->
+    <section class="w-full bg-[#0B0D1A] py-24 px-6 relative overflow-hidden">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16">
+                <p class="text-gray-400 text-sm uppercase tracking-widest mb-2">Testimonios</p>
+                <h2 class="text-5xl md:text-6xl font-extrabold text-white">
+                    Lo Que Dicen Nuestros<br>Coleccionistas
+                </h2>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div v-for="testimonial in testimonios" :key="testimonial.id" class="testimonial-card">
+                    <div class="flex gap-1 mb-4">
+                        <span v-for="i in 5" :key="i" :class="['text-xl', i <= testimonial.rating ? 'text-yellow-400' : 'text-gray-600']">★</span>
+                    </div>
+
+                    <p class="text-gray-300 text-sm mb-6 line-clamp-3">
+                        {{ testimonial.texto }}
+                    </p>
+
+                    <!-- Avatar y nombre -->
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-full bg-linear-to-br from-blue-400 to-blue-600 flex items-center justify-center">
+                            <span class="text-white font-bold text-sm">{{ testimonial.nombre.charAt(0) }}</span>
+                        </div>
+                        <div>
+                            <p class="text-white font-semibold text-sm">{{ testimonial.nombre }}</p>
+                            <p class="text-gray-400 text-xs">{{ testimonial.rol }}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="w-full bg-[#0B0D1A] py-24 px-6 relative overflow-hidden">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
+                <div>
+                    <p class="text-gray-400 text-sm uppercase tracking-widest mb-2">FAQ</p>
+                    <h2 class="text-5xl md:text-6xl font-extrabold text-white leading-tight">
+                        Preguntas Frecuentes:<br>Todo lo que Necesitas<br>Saber
+                    </h2>
+                    <p class="text-gray-400 text-lg mt-6">
+                        Te ayudamos con estas dudas que todos tenemos al empezar. Aquí encuentras las respuestas que buscan sobre la experiencia de colección
+                    </p>
+                    <button class="mt-8 bg-transparent border border-blue-500 text-blue-400 px-6 py-2 rounded-lg hover:bg-blue-500/10 transition flex items-center gap-2">
+                        <span>Contáctanos</span>
+                        <span>🚀</span>
+                    </button>
+                </div>
+
+                <!-- Preguntas expandibles -->
+                <div class="space-y-4">
+                    <div v-for="faq in faqs" :key="faq.id" class="faq-item">
+                        <button
+                            @click="faq.abierto = !faq.abierto"
+                            class="w-full flex items-center justify-between p-4 bg-gray-800/30 hover:bg-gray-800/50 border border-gray-700 rounded-lg transition"
+                        >
+                            <p class="text-white font-semibold text-left">{{ faq.pregunta }}</p>
+                            <span :class="['text-2xl transition', faq.abierto ? 'text-blue-400 rotate-45' : 'text-gray-400']">+</span>
+                        </button>
+                        <div v-if="faq.abierto" class="p-4 bg-gray-800/10 border-l-2 border-blue-500 mt-1 rounded">
+                            <p class="text-gray-300 text-sm">{{ faq.respuesta }}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 </template>
 
 <style scoped>
@@ -322,31 +465,33 @@ const cajas = [
 }
 .cta:hover { background: rgba(255,255,255,0.95); color: #000; }
 
-/* Hero image composition: mantener tamaño fijo para evitar saltos al cambiar imagen */
 .hero-image {
-    min-height: 520px;
+    min-height: 360px;
     display: flex;
     align-items: center;
     justify-content: center;
 }
-.hero-image .bg-box {
-    position: absolute;
-    right: 12%;
-    top: 6%;
-    width: 320px;
-    opacity: 0.12;
-    transform: translateZ(0);
-}
+
+    .hero-image .bg-box {
+        position: absolute;
+        right: 6%;
+        top: 6%;
+        width: 260px;
+        opacity: 0.12;
+        transform: translateZ(0);
+        pointer-events: none; /* evitar bloquear clicks en móviles */
+    }
 
 .hero-image .figure {
     position: relative;
-    height: 520px; /* altura fija para evitar cambios de layout */
+    max-height: 520px;
+    height: auto;
     width: auto;
     max-width: 100%;
-    z-index: 25;
+    z-index: 5; /* bajar por debajo del contenido textual (z-20) para que botones sean clicables */
     object-fit: contain;
-    transform: translateY(6%);
-    filter: drop-shadow(0 25px 40px rgba(0,0,0,0.6));
+    transform: translateY(4%);
+    filter: drop-shadow(0 18px 30px rgba(0,0,0,0.55));
     transition: opacity 0.35s ease, transform 0.35s ease;
 }
 
@@ -429,14 +574,36 @@ const cajas = [
         0 0 40px rgba(84, 167, 255, 0.25);
 }
 
+/* Tarjetas de Testimonios */
+.testimonial-card {
+    border: 1px solid rgba(59, 130, 246, 0.2);
+    border-radius: 12px;
+    padding: 1.5rem;
+    background: linear-gradient(135deg, rgba(30, 58, 138, 0.15), rgba(15, 23, 42, 0.3));
+    backdrop-filter: blur(10px);
+    transition: all 0.3s ease;
+}
+
+.testimonial-card:hover {
+    border-color: rgba(59, 130, 246, 0.4);
+    background: linear-gradient(135deg, rgba(30, 58, 138, 0.25), rgba(15, 23, 42, 0.4));
+    transform: translateY(-4px);
+}
+
+/* FAQ Items */
+.faq-item button span:last-child {
+    transition: transform 0.3s ease;
+}
+
 /* pequeños ajustes responsivos */
 @media (max-width: 768px) {
-    .edition { font-size: 2.2rem; }
-    .hero-image { display: none; }
+    .edition { font-size: 2rem; }
+    .hero-image { min-height: 260px; }
+    .hero-image .figure { max-height: 220px; }
     .arrow { display: none; }
     .chev { font-size: 20px; }
     .auto-image-wrapper { display: none; }
-    .plan-card { padding: 1.5rem; }
-    }
+    .caja-card { padding: 1rem; }
+}
 
 </style>
