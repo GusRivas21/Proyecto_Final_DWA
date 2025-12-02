@@ -282,28 +282,27 @@ const faqs = ref(faqsData.map(faq => ({ ...faq, abierto: false })));
     <!-- Carrusel -->
     <section class="w-full bg-[#0B0D1A] py-20 px-6 relative overflow-hidden">
 
-        <div class="w-[80%]  mx-auto grid grid-cols-6 gap-12 items-center">
-
-            <!-- Imagen izquierda con círculo azul -->
-            <div class="auto-image-wrapper col-span-6 md:col-span-3 flex justify-center items-center relative">
+        <div class="w-[70%] mx-auto">
+            <!-- Imagen arriba con círculo azul -->
+            <div class="auto-image-wrapper flex justify-center items-center relative mb-12">
                 <!-- Círculo azul de fondo -->
                 <div class="blue-circle"></div>
                 <!-- Imagen que rota -->
                 <img :src="autoSlides[currentAutoSlide].image" class="auto-figure" alt="featured"/>
             </div>
 
-            <!-- Contenido derecha -->
-            <div class="col-span-6 md:col-span-3">
-                <h2 class="text-5xl font-bold text-white leading-tight mb-4">
+            <!-- Contenido abajo -->
+            <div class="text-center md:text-left">
+                <h2 class="text-4xl md:text-5xl font-bold text-white leading-tight mb-4">
                     Donde Los Personajes Favoritos<br>Cobran Vida
                 </h2>
 
-                <p class="text-gray-300 text-lg leading-relaxed mb-8">
+                <p class="text-gray-300 text-lg leading-relaxed mb-8 max-w-2xl">
                     Tu destino definitivo para figuras de colección de máxima calidad. Donde cada detalle importa y cada pieza cuenta una historia única.
                 </p>
 
-                <div class="space-y-4">
-                    <div class="flex gap-4 items-center" v-for="(f, idx) in features" :key="idx">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="flex gap-4 items-start" v-for="(f, idx) in features" :key="idx">
                         <div class="shrink-0">
                             <div class="flex items-center justify-center h-10 w-10 rounded-full bg-blue-500">
                                 <svg class="h-6 w-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -312,8 +311,8 @@ const faqs = ref(faqsData.map(faq => ({ ...faq, abierto: false })));
                             </div>
                         </div>
                         <div>
-                            <h3 class="text-blue-400 font-bold">{{ f.title }}</h3>
-                            <p class="text-gray-400 text-sm">{{ f.text }}</p>
+                            <h3 class="text-blue-400 font-bold text-left">{{ f.title }}</h3>
+                            <p class="text-gray-400 text-sm text-left">{{ f.text }}</p>
                         </div>
                     </div>
                 </div>
@@ -335,18 +334,18 @@ const faqs = ref(faqsData.map(faq => ({ ...faq, abierto: false })));
 
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
                 <div v-for="caja in cajas" :key="caja.id" :class="['caja-card', { 'caja-destacado': caja.destacado }]">
-                    <div v-if="caja.destacado" class="absolute -top-4 left-1/2 transform -translate-x-1/2 bg-blue-500 text-white px-4 py-1 rounded-full text-sm font-bold">
+                    <div v-if="caja.destacado" class="absolute -top-7 left-1/2 transform -translate-x-1/2 bg-blue-500 text-white px-4 py-1 rounded-full text-sm font-bold">
                         {{ caja.etiqueta }}
                     </div>
 
                     <div class="flex flex-col h-full">
                         <div class="mb-6">
-                            <p class="text-blue-400 font-semibold text-sm mb-2">{{ caja.nombre }}</p>
-                            <div class="flex items-baseline gap-1">
-                                <span class="text-5xl font-bold text-white">${{ caja.precio }}</span>
-                                <span class="text-gray-400 text-lg"> USD </span>
+                            <p class="text-blue-400 font-semibold text-sm mb-3">{{ caja.nombre }}</p>
+                            <div class="flex items-baseline gap-2 flex-wrap">
+                                <span class="text-2xl md:text-3xl lg:text-4xl font-bold text-white wrap-break-words">${{ caja.precio }}</span>
+                                <span class="text-gray-400 text-xs md:text-sm">USD</span>
                             </div>
-                            <p class="text-gray-400 text-sm mt-3">Te Ofrecemos</p>
+                            <p class="text-gray-400 text-sm mt-4">Te Ofrecemos</p>
                             <div class="border-t border-gray-600 mt-4 pt-4"></div>
                         </div>
 
@@ -649,8 +648,8 @@ const faqs = ref(faqsData.map(faq => ({ ...faq, abierto: false })));
     .hero-image .figure { max-height: 220px; }
     .arrow { display: none; }
     .chev { font-size: 20px; }
-    .auto-image-wrapper { display: none; }
-    .caja-card { padding: 1rem; }
+    .auto-image-wrapper { min-height: 300px; }
+    .caja-card { padding: 1.5rem; }
 }
 
 </style>
