@@ -215,7 +215,7 @@ const faqs = ref(faqsData.map(faq => ({ ...faq, abierto: false })));
 
 <template>
     <section class="w-full bg-[#0B0D1A] py-20 px-6 relative overflow-hidden">
-        <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-6 gap-8 items-center">
+        <div class="w-[68%]  mx-auto grid grid-cols-1 md:grid-cols-6 gap-8 items-center">
             <!-- Flecha Izquierda -->
             <button @click="prevSlide" aria-label="Anterior" class="arrow left-6">
                 <span class="chev">‹</span>
@@ -270,7 +270,7 @@ const faqs = ref(faqsData.map(faq => ({ ...faq, abierto: false })));
     <!-- Carrusel -->
     <section class="w-full bg-[#0B0D1A] py-20 px-6 relative overflow-hidden">
 
-        <div class="max-w-7xl mx-auto grid grid-cols-6 gap-12 items-center">
+        <div class="w-[80%]  mx-auto grid grid-cols-6 gap-12 items-center">
 
             <!-- Imagen izquierda con círculo azul -->
             <div class="auto-image-wrapper col-span-6 md:col-span-3 flex justify-center items-center relative">
@@ -310,7 +310,7 @@ const faqs = ref(faqsData.map(faq => ({ ...faq, abierto: false })));
     </section>
 
     <section class="w-full bg-[#0B0D1A] py-24 px-6 relative overflow-hidden">
-        <div class="max-w-7xl mx-auto">
+        <div class="w-[70%]  mx-auto">
             <div class="text-center mb-16">
                 <p class="text-gray-400 text-sm uppercase tracking-widest mb-2">Cajas de Figuras</p>
                 <h2 class="text-5xl md:text-6xl font-extrabold text-white mb-2">
@@ -361,7 +361,7 @@ const faqs = ref(faqsData.map(faq => ({ ...faq, abierto: false })));
 
     <!-- Sección Testimonios -->
     <section class="w-full bg-[#0B0D1A] py-24 px-6 relative overflow-hidden">
-        <div class="max-w-7xl mx-auto">
+        <div class="w-[70%]  mx-auto">
             <div class="text-center mb-16">
                 <p class="text-gray-400 text-sm uppercase tracking-widest mb-2">Testimonios</p>
                 <h2 class="text-5xl md:text-6xl font-extrabold text-white">
@@ -393,7 +393,7 @@ const faqs = ref(faqsData.map(faq => ({ ...faq, abierto: false })));
     </section>
 
     <section class="w-full bg-[#0B0D1A] py-24 px-6 relative overflow-hidden">
-        <div class="max-w-7xl mx-auto">
+        <div class="w-[70%]  mx-auto">
             <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
                 <div>
                     <p class="text-gray-400 text-sm uppercase tracking-widest mb-2">FAQ</p>
@@ -414,8 +414,7 @@ const faqs = ref(faqsData.map(faq => ({ ...faq, abierto: false })));
                         <button role="combobox"
                             @click="faq.abierto = !faq.abierto"
                             @keydown.enter.prevent="faq.abierto = !faq.abierto"
-                            class="w-full flex items-center justify-between p-4 bg-gray-800/30 hover:bg-gray-800/50 border border-gray-700 rounded-lg transition"
-                        >
+                            class="w-full flex items-center justify-between p-4 bg-gray-800/30 hover:bg-gray-800/50 border border-gray-700 rounded-lg transition">
                             <p class="text-white font-semibold text-left">{{ faq.pregunta }}</p>
                             <span :class="['text-2xl transition', faq.abierto ? 'text-blue-400 rotate-45' : 'text-gray-400']">+</span>
                         </button>
