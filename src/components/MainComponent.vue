@@ -215,16 +215,13 @@ const faqs = ref(faqsData.map(faq => ({ ...faq, abierto: false })));
 
 <template>
     <section class="w-full bg-[#0B0D1A] py-20 px-6 relative overflow-hidden">
-
         <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-6 gap-8 items-center">
-
             <!-- Flecha Izquierda -->
             <button @click="prevSlide" aria-label="Anterior" class="arrow left-6">
                 <span class="chev">‹</span>
             </button>
 
             <div class="col-span-6 md:col-span-3 relative z-20 max-w-2xl">
-
                 <h1 class="text-[64px] md:text-7xl font-extrabold text-white leading-tight">
                     Descubre Figuras
                 </h1>
@@ -294,7 +291,7 @@ const faqs = ref(faqsData.map(faq => ({ ...faq, abierto: false })));
                 </p>
 
                 <div class="space-y-4">
-                        <div class="flex gap-4 items-center" v-for="(f, idx) in features" :key="idx">
+                    <div class="flex gap-4 items-center" v-for="(f, idx) in features" :key="idx">
                         <div class="shrink-0">
                             <div class="flex items-center justify-center h-10 w-10 rounded-full bg-blue-500">
                                 <svg class="h-6 w-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -303,8 +300,8 @@ const faqs = ref(faqsData.map(faq => ({ ...faq, abierto: false })));
                             </div>
                         </div>
                         <div>
-                                <h3 class="text-blue-400 font-bold">{{ f.title }}</h3>
-                                <p class="text-gray-400 text-sm">{{ f.text }}</p>
+                            <h3 class="text-blue-400 font-bold">{{ f.title }}</h3>
+                            <p class="text-gray-400 text-sm">{{ f.text }}</p>
                         </div>
                     </div>
                 </div>
@@ -335,7 +332,7 @@ const faqs = ref(faqsData.map(faq => ({ ...faq, abierto: false })));
                             <p class="text-blue-400 font-semibold text-sm mb-2">{{ caja.nombre }}</p>
                             <div class="flex items-baseline gap-1">
                                 <span class="text-5xl font-extrabold text-white">${{ caja.precio }}</span>
-                                <span class="text-gray-400 text-lg"> Dolares</span>
+                                <span class="text-gray-400 text-lg"> USD </span>
                             </div>
                             <p class="text-gray-400 text-sm mt-3">Te Ofrecemos</p>
                             <div class="border-t border-gray-600 mt-4 pt-4"></div>
@@ -377,11 +374,9 @@ const faqs = ref(faqsData.map(faq => ({ ...faq, abierto: false })));
                     <div class="flex gap-1 mb-4">
                         <span v-for="i in 5" :key="i" :class="['text-xl', i <= testimonial.rating ? 'text-yellow-400' : 'text-gray-600']">★</span>
                     </div>
-
                     <p class="text-gray-300 text-sm mb-6 line-clamp-3">
                         {{ testimonial.texto }}
                     </p>
-
                     <!-- Avatar y nombre -->
                     <div class="flex items-center gap-3">
                         <div class="w-10 h-10 rounded-full bg-linear-to-br from-blue-400 to-blue-600 flex items-center justify-center">
@@ -413,7 +408,6 @@ const faqs = ref(faqsData.map(faq => ({ ...faq, abierto: false })));
                         <span>🚀</span>
                     </button>
                 </div>
-
                 <!-- Preguntas expandibles -->
                 <div class="space-y-4">
                     <div v-for="faq in faqs" :key="faq.id" class="faq-item">
@@ -442,25 +436,24 @@ const faqs = ref(faqsData.map(faq => ({ ...faq, abierto: false })));
 <style scoped>
 /* Texto grande con trazo rojo y relleno transparente */
 .edition {
-    /* Responsive stroke-outline heading */
     font-size: clamp(1.6rem, 4vw, 4.25rem);
     line-height: 1.02; /* pequeño espacio para evitar colisiones */
     font-weight: 800;
     color: transparent;
     -webkit-text-stroke: 2px #7f1416;
     mix-blend-mode: normal;
-    margin-top: -0.4rem; /* menos negativo en móvil */
+    margin-top: -0.4rem;
     margin-bottom: 0.35rem;
     display: block;
     position: relative;
-    z-index: 25; /* asegurar sobre otros elementos visuales */
+    z-index: 25;
 }
 
 @media (max-width: 640px) {
     .edition {
         font-size: 1.45rem;
         -webkit-text-stroke: 1px #7f1416;
-        margin-top: 0; /* sin margen negativo en móviles */
+        margin-top: 0;
         margin-bottom: 0.25rem;
         line-height: 1.05;
     }
@@ -531,7 +524,7 @@ const faqs = ref(faqsData.map(faq => ({ ...faq, abierto: false })));
     height: auto;
     width: auto;
     max-width: 100%;
-    z-index: 5; /* bajar por debajo del contenido textual (z-20) para que botones sean clicables */
+    z-index: 5;
     object-fit: contain;
     transform: translateY(4%);
     filter: drop-shadow(0 18px 30px rgba(0,0,0,0.55));
@@ -611,7 +604,7 @@ const faqs = ref(faqsData.map(faq => ({ ...faq, abierto: false })));
 }
 
 .caja-destacada:hover {
-    box-shadow: 
+    box-shadow:
         0 25px 50px rgba(59, 130, 246, 0.3),
         inset 0 1px 0 rgba(255, 255, 255, 0.15),
         0 0 40px rgba(84, 167, 255, 0.25);
