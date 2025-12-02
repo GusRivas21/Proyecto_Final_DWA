@@ -1,3 +1,13 @@
+<script setup>
+
+import { ref } from "vue";
+import { RouterLink } from "vue-router";
+const isOpen = ref(false);
+const open = ref(false);
+const email = ref("");
+const password = ref("");
+</script>
+
 <template>
     <nav class="w-full text-white"style="background-color: #141420;">
         <div class="w-[80%] mx-auto flex flex-row justify-between gap-x-4 py-3 ">
@@ -14,19 +24,22 @@
                     <li class="flex content-cemter"><RouterLink class="inter-subtitle-regular content-center" :to="{ name: 'figuras'}">Figuras</RouterLink></li>
                     <li class="flex content-cemter"><RouterLink class="inter-subtitle-regular content-center" :to="{ name: 'ofertas'}">Ofertas</RouterLink></li>
                 </ul>
-                <div class="hidden md:flex lg:justify-end flex-row gap-x-7">
-                    <form aria-hidden="true" tabindex="0"
-                    class="flex content-around flex-row bg-white w-3xs p-3 rounded-xl text-center justify-between text-black focus-visible:ring-2 focus-visible:ring-blue-500  " >
-                        <input type="text" class="w-[80%] caret-black outline-none">
-                        <button class="w-fit" aria-label="buscar">
-                            <i class="fa-solid fa-magnifying-glass fa-2xl leading-none cursor-pointer" style="color: #539ff0;"></i>
-                        </button>
-                    </form>
+                <div class="hidden md:flex lg:justify-end flex-row gap-x-7 items-center">
+                  <!-- Buscador (desktop) -->
+                  <form role="search" @submit.prevent class="nav-form hidden sm:flex items-center gap-2 px-3 py-2 rounded-xl bg-white/5 hover:bg-white/10">
+                    <label for="nav-search" class="sr-only">Buscar productos</label>
+                    <input id="nav-search" type="search" placeholder="Buscar figuras, ofertas..." class="nav-input" />
+                    <button type="submit" aria-label="Buscar" class="nav-search-btn">
+                      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#539ff0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                    </button>
+                  </form>
 
-                    <div class="flex flex-row py-3 gap-x-5">
-                        <button aria-label="iniciar sesion" @click="open = true" ><i class="fa-solid fa-user fa-2xl leading-none cursor-pointer" style="color: #539ff0;" ></i></button>
-                        <button aria-label="carrito"><RouterLink class="fa-solid fa-cart-shopping fa-2xl leading-none cursor-pointer" style="color: #539ff0;" :to="{ name: 'carrito'}"></RouterLink></button>
-                    </div>
+                  <div class="flex flex-row py-3 gap-x-5 items-center">
+                    <button aria-label="iniciar sesion" @click="open = true" class="icon-btn"><i class="fa-solid fa-user fa-2xl leading-none" style="color: #539ff0;"></i></button>
+                    <RouterLink :to="{ name: 'carrito'}" class="icon-btn" aria-label="Ver carrito">
+                      <i class="fa-solid fa-cart-shopping fa-2xl leading-none" style="color: #539ff0;"></i>
+                    </RouterLink>
+                  </div>
                 </div>
             </div>
         </div>
@@ -39,17 +52,20 @@
                 </ul>
                 <div class="h-px w-100 bg-gray-400"></div>
                 <div class="flex-col md:hidden">
-                    <form tabindex="0"
-                    class="flex content-around flex-row bg-white w-3xs p-3 rounded-xl text-center justify-between text-black focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 mb-4">
-                        <input type="text" class="w-[80%] caret-black outline-none">
-                        <button class="w-fit">
-                            <i class="fa-solid fa-magnifying-glass fa-2xl leading-none cursor-pointer" style="color: #539ff0;"></i>
-                        </button>
-                    </form>
-                    <div class="flex flex-row py-3 gap-x-5 justify-center">
-                        <button  @click="open = true" ><i class="fa-solid fa-user fa-2xl leading-none cursor-pointer" style="color: #539ff0;"></i></button>
-                        <button><RouterLink class="fa-solid fa-cart-shopping fa-2xl leading-none cursor-pointer" style="color: #539ff0;" :to="{ name: 'carrito'}"></RouterLink></button>
-                    </div>
+                  <!-- Buscador (mobile) -->
+                  <form role="search" @submit.prevent class="nav-form-mobile flex items-center gap-2 bg-white/5 rounded-xl p-2 mb-4">
+                    <label for="nav-search-mobile" class="sr-only">Buscar</label>
+                    <input id="nav-search-mobile" type="search" placeholder="Buscar figuras..." class="nav-input-mobile" />
+                    <button type="submit" aria-label="Buscar" class="nav-search-btn-mobile">
+                      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#539ff0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                    </button>
+                  </form>
+                  <div class="flex flex-row py-3 gap-x-5 justify-center">
+                    <button @click="open = true" class="icon-btn"><i class="fa-solid fa-user fa-2xl leading-none" style="color: #539ff0;"></i></button>
+                    <RouterLink :to="{ name: 'carrito'}" class="icon-btn" aria-label="Ver carrito">
+                      <i class="fa-solid fa-cart-shopping fa-2xl leading-none" style="color: #539ff0;"></i>
+                    </RouterLink>
+                  </div>
                 </div>
             </div>
     </nav>
@@ -148,14 +164,19 @@
     .animate-fadeIn {
     animation: fadeIn 0.2s ease-out;
 }
+
+    /* Navbar search + helpers */
+    .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border-width: 0; }
+    .nav-form { border: 1px solid rgba(255,255,255,0.04); }
+    .nav-input { background: transparent; border: none; outline: none; color: #fff; padding: 6px 8px; min-width: 180px; }
+    .nav-search-btn { background: transparent; border: none; display: inline-flex; align-items: center; justify-content: center; padding: 4px; }
+    .nav-form-mobile { width: 100%; }
+    .nav-input-mobile { background: transparent; border: none; outline: none; color: #fff; padding: 6px 8px; width: 100%; }
+    .nav-search-btn-mobile { background: transparent; border: none; display: inline-flex; align-items: center; justify-content: center; padding: 6px; }
+    .icon-btn { background: transparent; border: none; padding: 4px; display: inline-flex; align-items: center; justify-content: center; }
+
+    /* small responsive tweaks */
+    @media (max-width: 640px) {
+      .nav-input { min-width: 100px; }
+    }
 </style>
-
-<script setup>
-
-import { ref } from "vue";
-import { RouterLink } from "vue-router";
-const isOpen = ref(false);
-const open = ref(false);
-const email = ref("");
-const password = ref("");
-</script>
