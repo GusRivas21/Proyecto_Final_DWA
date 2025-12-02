@@ -402,14 +402,20 @@ const faqs = ref(faqsData.map(faq => ({ ...faq, abierto: false })));
                 <!-- Preguntas expandibles -->
                 <div class="space-y-4">
                     <div v-for="faq in faqs" :key="faq.id" class="faq-item">
-                        <button
+                        <button role="combobox"
                             @click="faq.abierto = !faq.abierto"
+                            @keydown.enter.prevent="faq.abierto = !faq.abierto"
                             class="w-full flex items-center justify-between p-4 bg-gray-800/30 hover:bg-gray-800/50 border border-gray-700 rounded-lg transition"
                         >
                             <p class="text-white font-semibold text-left">{{ faq.pregunta }}</p>
                             <span :class="['text-2xl transition', faq.abierto ? 'text-blue-400 rotate-45' : 'text-gray-400']">+</span>
                         </button>
-                        <div v-if="faq.abierto" class="p-4 bg-gray-800/10 border-l-2 border-blue-500 mt-1 rounded">
+                        <div v-if="faq.abierto" 
+                                    :id="`faq-panel-${index}`"
+                                    role="region"
+                                    :aria-labelledby="`faq-btn-${index}`"
+                                    class="p-4 bg-gray-800/10 border-l-2 border-blue-500 mt-1 rounded">
+                                    
                             <p class="text-gray-300 text-sm">{{ faq.respuesta }}</p>
                         </div>
                     </div>

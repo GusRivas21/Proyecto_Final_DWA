@@ -135,7 +135,7 @@ const goToPage = (page) => { currentPage.value = page; };
                     <h2 class="text-white text-2xl font-bold leading-tight">{{ producto.nombre }}</h2>
                 </div>
                 <div class="flex flex-col items-end">
-                    <div class="flex items-center space-x-1 text-yellow-400 mb-1" role="img"
+                    <div class="flex items-center space-x-1 text-yellow-400 mb-1"
                         :aria-label="'Calificación: ' + producto.rating + ' de 5 estrellas'">
                         <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
                             fill="currentColor" class="size-6">
@@ -150,14 +150,14 @@ const goToPage = (page) => { currentPage.value = page; };
                         :aria-label="'Precio: ' + producto.precio + ' dólares'">${{ producto.precio }}</span>
                 </div>
             </div>
-            <button @click="agregarAlCarrito(producto.nombre)" :aria-label="`Agregar ${producto.nombre} al carrito`"
+            <button @click="agregarAlCarrito(producto.nombre)" :aria-label="`Calificacion ${producto.rating} Precio ${producto.precio} dolares Agregar ${producto.nombre} al carrito`"
                 class="w-full bg-indigo-600 hover:bg-indigo-500 text-white font-bold py-3 rounded-lg transition duration-200 shadow-md">
                 Agregar al carrito
             </button>
         </div>
-        <div class="w-full flex justify-center mt-10" v-if="totalPages > 1">
+        <div class="w-full flex justify-center my-10" v-if="totalPages > 1">
             <nav class="flex items-center gap-2">
-                <button @click="prevPage" :disabled="currentPage === 1" :class="['flex items-center justify-center px-4 py-2 text-sm font-medium rounded-lg border transition-colors',
+                <button aria-label="pagina anterior" @click="prevPage" :disabled="currentPage === 1" :class="['flex items-center justify-center px-4 py-2 text-sm font-medium rounded-lg border transition-colors',
                     currentPage === 1
                         ? 'bg-gray-800 text-gray-500 border-gray-700 cursor-not-allowed'
                         : 'text-white bg-gray-700 border-gray-600 hover:bg-gray-600']">
@@ -174,7 +174,7 @@ const goToPage = (page) => { currentPage.value = page; };
                 ]">
                     {{ page }}
                 </button>
-                <button @click="nextPage" :disabled="currentPage === totalPages" :class="['flex items-center justify-center px-4 py-2 text-sm font-medium rounded-lg border transition-colors',
+                <button aria-label="siguiente pagina" @click="nextPage" :disabled="currentPage === totalPages" :class="['flex items-center justify-center px-4 py-2 text-sm font-medium rounded-lg border transition-colors',
                     currentPage === totalPages
                         ? 'bg-gray-800 text-gray-500 border-gray-700 cursor-not-allowed'
                         : 'text-white bg-gray-700 border-gray-700 hover:bg-gray-600']">

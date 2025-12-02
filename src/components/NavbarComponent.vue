@@ -18,14 +18,14 @@
                     <form aria-hidden="true" tabindex="0"
                     class="flex content-around flex-row bg-white w-3xs p-3 rounded-xl text-center justify-between text-black focus-visible:ring-2 focus-visible:ring-blue-500  " >
                         <input type="text" class="w-[80%] caret-black outline-none">
-                        <button class="w-fit">
+                        <button class="w-fit" aria-label="buscar">
                             <i class="fa-solid fa-magnifying-glass fa-2xl leading-none cursor-pointer" style="color: #539ff0;"></i>
                         </button>
                     </form>
 
                     <div class="flex flex-row py-3 gap-x-5">
-                        <button  @click="open = true" ><i class="fa-solid fa-user fa-2xl leading-none cursor-pointer" style="color: #539ff0;" ></i></button>
-                        <button><RouterLink class="fa-solid fa-cart-shopping fa-2xl leading-none cursor-pointer" style="color: #539ff0;" :to="{ name: 'carrito'}"></RouterLink></button>
+                        <button aria-label="iniciar sesion" @click="open = true" ><i class="fa-solid fa-user fa-2xl leading-none cursor-pointer" style="color: #539ff0;" ></i></button>
+                        <button aria-label="carrito"><RouterLink class="fa-solid fa-cart-shopping fa-2xl leading-none cursor-pointer" style="color: #539ff0;" :to="{ name: 'carrito'}"></RouterLink></button>
                     </div>
                 </div>
             </div>

@@ -28,7 +28,7 @@
             <section class="mb-5 lg:col-start-2 xl:col-start-auto">
                 <h4 class="inter-text-semi-bold mb-8  " >EL SANTUARIO</h4>
                 <h4 class="inter-text-semi-bold mb-8">Redes Sociales</h4>
-                <ul class="flex flex-row">
+                <ul class="flex flex-row justify-center">
                     <li><a href=""><i class="fa-brands fa-square-facebook fa-2xl" style="color: #ffffff;"></i></a></li>
                     <li><a href=""><i class="fa-brands fa-instagram fa-2xl" style="color: #ffffff;"></i></a></li>
                     <li><a href=""><i class="fa-brands fa-tiktok fa-2xl" style="color: #ffffff;"></i></a></li>

@@ -163,7 +163,7 @@ const goToPage = (page) => { currentPage.value = page; };
                 Agregar al carrito
             </button>
         </div>
-        <div class="w-full flex justify-center mt-10">
+        <div class="w-full flex justify-center my-10">
             <nav class="flex items-center gap-2">
                 <button @click="prevPage" :disabled="currentPage === 1" :class="['flex items-center justify-center px-4 py-2 text-sm font-medium rounded-lg border transition-colors',
                     currentPage === 1
