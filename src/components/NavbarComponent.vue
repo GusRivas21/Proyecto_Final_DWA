@@ -48,7 +48,7 @@
                     </form>
                     <div class="flex flex-row py-3 gap-x-5 justify-center">
                         <button  @click="open = true" ><i class="fa-solid fa-user fa-2xl leading-none cursor-pointer" style="color: #539ff0;"></i></button>
-                        <button><i class="fa-solid fa-cart-shopping fa-2xl leading-none cursor-pointer" style="color: #539ff0;"></i></button>
+                        <button><RouterLink class="fa-solid fa-cart-shopping fa-2xl leading-none cursor-pointer" style="color: #539ff0;" :to="{ name: 'carrito'}"></RouterLink></button>
                     </div>
                 </div>
             </div>
